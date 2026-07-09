@@ -4,8 +4,6 @@ Welcome to my **LeetCode Solutions** repository! This repository is a collection
 
 ## About the Repository
 
-This repository serves as a comprehensive collection of my LeetCode solutions, implemented primarily in **Java**. Each solution is written with a focus on correctness, readability, and efficiency. Whenever possible, I strive to optimize my solutions by considering different approaches and analyzing their time and space complexities.
-
 The repository is regularly updated as I solve new problems across various topics and difficulty levels. It not only helps me track my progress but also acts as a valuable resource for revision and continuous learning.
 
 Every solved problem represents another step toward strengthening my understanding of algorithms, improving my analytical thinking, and becoming a better software developer. As I continue my learning journey, I will keep expanding this repository with more solutions, optimized implementations, and better coding practices.
