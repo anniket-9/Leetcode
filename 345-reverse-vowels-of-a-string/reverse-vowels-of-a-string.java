@@ -1,37 +1,44 @@
 class Solution {
     public String reverseVowels(String s) {
 
-        StringBuilder str = new StringBuilder(s);
+        char[] arr= s.toCharArray();
 
-        int i = 0;
-        int j = str.length() - 1;
+        int i=0;      // 2 pointers initilised
+        int j=arr.length-1;
 
-        while (i < j) {
+        while(i<j){ //the 2 pointers have not crossed each other
 
-            if (!isVowel(str.charAt(i))) {
+            //keep moving until you find a vowel from left.
+            while(i<j && !isVowel(arr[i])){ 
+                
                 i++;
             }
-            else if (!isVowel(str.charAt(j))) {
+            //find vowel from right
+            while(i<j && !isVowel(arr[j])){
                 j--;
             }
-            else {
-                char temp = str.charAt(i);
+            
+            //swap vowels
+            char temp=arr[i]; 
+            arr[i]=arr[j];
+            arr[j]=temp;
 
-                str.setCharAt(i, str.charAt(j));
-                str.setCharAt(j, temp);
-
-                i++;
-                j--;
-            }
+            i++;
+            j--;
         }
 
-        return str.toString();
-    }
+        return new String(arr);
 
-    private boolean isVowel(char ch) {
-        return ch == 'a' || ch == 'e' || ch == 'i' ||
-               ch == 'o' || ch == 'u' ||
-               ch == 'A' || ch == 'E' || ch == 'I' ||
-               ch == 'O' || ch == 'U';
+
     }
+    private boolean isVowel(char ch){
+
+        return ch=='a' || ch=='e' || ch=='i' ||
+               ch=='o' || ch=='u' ||
+
+               ch=='A' || ch=='E' || ch=='I' ||
+               ch=='O' || ch=='U';
+                     
+               
+       }
 }
