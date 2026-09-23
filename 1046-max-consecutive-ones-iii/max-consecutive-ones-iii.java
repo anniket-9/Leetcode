@@ -1,26 +1,23 @@
 class Solution {
     public int longestOnes(int[] nums, int k) {
 
-        int left = 0;
-        int zeros = 0;
-        int maxLength = 0;
+        int left=0; //initilize the pointers
+        int zeroCount=0;
+        int maxLength=0;
 
-        for (int right = 0; right < nums.length; right++) {
-
-            if (nums[right] == 0) {
-                zeros++;
+        for(int right=0; right<nums.length; right++){  
+            if( nums[right]==0){ //if values is 0 then increase the count
+                zeroCount++;
             }
-
-            while (zeros > k) {
-                if (nums[left] == 0) {
-                    zeros--;
+            while(zeroCount>k){ //if zerocount > k then shrink the window size
+                if(nums[left]==0){ 
+                    zeroCount--;
                 }
-                left++;
+            left++;
             }
 
-            maxLength = Math.max(maxLength, right - left + 1);
+            maxLength=Math.max(maxLength, right-left+1);
         }
-
         return maxLength;
     }
 }
