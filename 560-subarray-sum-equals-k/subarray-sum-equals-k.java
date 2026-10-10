@@ -1,21 +1,21 @@
 class Solution {
     public int subarraySum(int[] nums, int k) {
         
-        int i=0;
-        int count=0;
+        //to check how many times sum apperead
+        HashMap<Integer,Integer> mp=new HashMap<>(); 
 
-        for(i=0;i<nums.length;i++){
-            int sum=0;
-        
-        for(int j=i; j<nums.length; j++){
-            sum+=nums[j];
-        
-        
-        if (sum == k){
-            count++;
+        int result=0; //to store no of subarray whose sum is k
+        int cumSum=0; //cumulative sum
+
+        mp.put(0,1); //empty prefix sum before array start
+
+        for(int i=0; i<nums.length; i++){
+            cumSum=cumSum+nums[i];  //add current element to cumSum
+            if(mp.containsKey(cumSum-k)){
+                result+=mp.get(cumSum-k); //if that prefix sum exists
+            }
+            mp.put(cumSum, mp.getOrDefault(cumSum,0)+1); //to store the current prefixsum
         }
-        }
-        }
-        return count;
+        return result;
     }
 }
